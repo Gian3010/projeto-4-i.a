@@ -1,0 +1,21 @@
+# Blueprint do Render: "New +" > "Blueprint" > selecione o repositório.
+services:
+  - type: web
+    name: review-insight-api
+    runtime: python
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: pip install -r requirements.txt && python -m ml.train
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1 --proxy-headers
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: API_KEYS
+        generateValue: true      # o Render gera uma chave aleatória; leia em Environment
+      - key: RATE_LIMIT_PER_MIN
+        value: "120"
+      - key: LOG_LEVEL
+        value: INFO

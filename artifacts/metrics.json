@@ -1,0 +1,46 @@
+{
+  "model_version": "2026.11.01-2b12265b",
+  "trained_at": "2026-11-01T14:19:42+00:00",
+  "sklearn_version": "1.9.1",
+  "n_train": 6000,
+  "labels": {
+    "sentiment": [
+      "negativo",
+      "neutro",
+      "positivo"
+    ],
+    "topic": [
+      "atendimento",
+      "entrega",
+      "preco",
+      "produto"
+    ]
+  },
+  "metrics": {
+    "sentiment": {
+      "synthetic_holdout": {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "n": 1500
+      },
+      "handwritten": {
+        "accuracy": 0.7222,
+        "macro_f1": 0.7207,
+        "n": 36
+      }
+    },
+    "topic": {
+      "synthetic_holdout": {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "n": 1500
+      },
+      "handwritten": {
+        "accuracy": 0.6667,
+        "macro_f1": 0.6656,
+        "n": 36
+      }
+    }
+  },
+  "disclaimer": "Treinado em dados sintéticos; a métrica 'handwritten' (36 frases) é a mais realista."
+}
